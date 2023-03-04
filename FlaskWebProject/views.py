@@ -6,4 +6,4 @@ from FlaskWebProject.models import Post
 @app.route("/")
 def home():
     post = Post.query.first()
-    return "Hello, World!" + post.title
+    return post.title
