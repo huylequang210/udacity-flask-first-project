@@ -6,4 +6,4 @@ from FlaskWebProject.models import Post
 @app.route("/")
 def home():
     Post.query.all()
-    return "Hello, Flask!"
+    return "Hello, World!"
