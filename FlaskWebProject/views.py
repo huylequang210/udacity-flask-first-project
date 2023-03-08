@@ -101,7 +101,7 @@ def logout():
     session.clear()  # Wipe out user and its token cache from session
     return redirect(  # Also logout from your tenant's web session
         Config.AUTHORITY + "/oauth2/v2.0/logout" +
-        "?post_logout_redirect_uri=" + url_for("home", _external=True))
+        "?post_logout_redirect_uri=" + url_for("login", _external=True))
 
 
 def _load_cache():

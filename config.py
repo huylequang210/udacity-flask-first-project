@@ -19,7 +19,7 @@ class Config(object):
     ### As adapted from: https://github.com/Azure-Samples/ms-identity-python-webapp ###
     CLIENT_SECRET = "AQr8Q~2dODSFuxrMmaGi8~DtNvRZkdfWCsFsRc87"
 
-    AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app, else put tenant name
+    AUTHORITY = "https://login.microsoftonline.com/9fbdf6f6-bf39-44b4-8a80-4d24a85affc9"  # For multi-tenant app, else put tenant name
     # AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 
     CLIENT_ID = "d621d96d-0688-4073-8f3d-745397b4df4f"
