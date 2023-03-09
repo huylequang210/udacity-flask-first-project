@@ -1,4 +1,5 @@
 import uuid
+import urllib
 from flask import render_template, flash, redirect, request, session, url_for
 from FlaskWebProject.forms import LoginForm, PostForm
 from config import Config
@@ -97,11 +98,13 @@ def authorized():
 
 @app.route("/logout")
 def logout():
-    session.clear()  # Wipe out user and its token cache from session
-    return redirect(  # Also logout from your tenant's web session
-        Config.AUTHORITY + "/oauth2/v2.0/logout" +
-        "?post_logout_redirect_uri=" + url_for("login", _external=True))
-
+    logout_user()
+    if session.get("user"):
+        session.clear()
+        return redirect(
+            Config.AUTHORITY + "/oauth2/logout" +
+            "?post_logout_redirect_uri=" + urllib.parse.quote(url_for("login", _external=True, _scheme="https")))
+    return redirect(url_for('login'))
 
 def _load_cache():
     cache = msal.SerializableTokenCache()
